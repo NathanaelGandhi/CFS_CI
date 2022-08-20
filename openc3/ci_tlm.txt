@@ -1,6 +1,6 @@
 TELEMETRY CFS HK BIG_ENDIAN "Housekeeping telemetry"
     #               NAME                  BITS TYPE ID      DESCRIPTION
-    APPEND_ID_ITEM  STREAM_ID             16   UINT 0x0897 "Stream ID"
+    APPEND_ID_ITEM  STREAM_ID             16   UINT 0x0884 "Stream ID"
     FORMAT_STRING   "0x%04X"
     APPEND_ITEM     SEQUENCE              16   UINT        "Packet Sequence"
     FORMAT_STRING   "0x%04X"
