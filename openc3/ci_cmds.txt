@@ -1,0 +1,63 @@
+COMMAND CFS CI_WAKEUP BIG_ENDIAN "CI_WAKEUP Command"
+    #                           NAME        BITS TYPE   MIN_VAL     MAX_VAL     INIT_VAL    DESCRIPTION
+    # cFS primary header
+    APPEND_ID_PARAMETER         STREAM_ID   16   UINT   0x1886      0x1886      0x1886      "Packet Identification"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            SEQUENCE    16   UINT   MIN_UINT16  MAX_UINT16  0xC000      "Packet Sequence"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            PKT_LEN     16   UINT   0x0001      0x0001      0x0001      "Packet length"
+    # cFS CMD secondary header
+    APPEND_PARAMETER            CMD_ID       8   UINT   0           0           0           "FunctionCode"
+    APPEND_PARAMETER            CHECKSUM     8   UINT   MIN_UINT8   MAX_UINT8   MIN_UINT8   "Checksum"
+
+COMMAND CFS CI_NOOP BIG_ENDIAN "CI_NOOP Command"
+    #                           NAME        BITS TYPE   MIN_VAL     MAX_VAL     INIT_VAL    DESCRIPTION
+    # cFS primary header
+    APPEND_ID_PARAMETER         STREAM_ID   16   UINT   0x1884      0x1884      0x1884      "Packet Identification"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            SEQUENCE    16   UINT   MIN_UINT16  MAX_UINT16  0xC000      "Packet Sequence"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            PKT_LEN     16   UINT   0x0001      0x0001      0x0001      "Packet length"
+    # cFS CMD secondary header
+    APPEND_PARAMETER            CMD_ID       8   UINT   0           0           0           "FunctionCode"
+    APPEND_PARAMETER            CHECKSUM     8   UINT   MIN_UINT8   MAX_UINT8   MIN_UINT8   "Checksum"
+
+COMMAND CFS CI_RESET BIG_ENDIAN "CI_RESET Command"
+    #                           NAME        BITS TYPE   MIN_VAL     MAX_VAL     INIT_VAL    DESCRIPTION
+    # cFS primary header
+    APPEND_ID_PARAMETER         STREAM_ID   16   UINT   0x1884      0x1884      0x1884      "Packet Identification"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            SEQUENCE    16   UINT   MIN_UINT16  MAX_UINT16  0xC000      "Packet Sequence"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            PKT_LEN     16   UINT   0x0001      0x0001      0x0001      "Packet length"
+    # cFS CMD secondary header
+    APPEND_PARAMETER            CMD_ID       8   UINT   1           1           1           "FunctionCode"
+    APPEND_PARAMETER            CHECKSUM     8   UINT   MIN_UINT8   MAX_UINT8   MIN_UINT8   "Checksum"
+
+COMMAND CFS CI_ENABLE_TO BIG_ENDIAN "CI_ENABLE_TO Command"
+    #                           NAME        BITS TYPE   MIN_VAL     MAX_VAL     INIT_VAL    DESCRIPTION
+    # cFS primary header
+    APPEND_ID_PARAMETER         STREAM_ID   16   UINT   0x1884      0x1884      0x1884      "Packet Identification"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            SEQUENCE    16   UINT   MIN_UINT16  MAX_UINT16  0xC000      "Packet Sequence"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            PKT_LEN     16   UINT   0x0001      0xFFFF      0x0013      "Packet length"
+    # cFS CMD secondary header
+    APPEND_PARAMETER            CMD_ID       8   UINT   2           2           2           "FunctionCode"
+    APPEND_PARAMETER            CHECKSUM     8   UINT   MIN_UINT8   MAX_UINT8   MIN_UINT8   "Checksum"
+    # Destination IP
+    APPEND_PARAMETER            DEST_IP     128  STRING "127.0.0.1"                         "Destination IP, i.e. 172.16.9.112, pc-57"
+    # Destination PORT
+    APPEND_PARAMETER            DEST_PORT   16   UINT   0x0001      0xFFFF      5010        "Telecommands PORT"
+
+COMMAND CFS CI_SEND_HK BIG_ENDIAN "CI_SEND_HK Command"
+    #                           NAME        BITS TYPE   MIN_VAL     MAX_VAL     INIT_VAL    DESCRIPTION
+    # cFS primary header
+    APPEND_ID_PARAMETER         STREAM_ID   16   UINT   0x1885      0x1885      0x1885      "Packet Identification"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            SEQUENCE    16   UINT   MIN_UINT16  MAX_UINT16  0xC000      "Packet Sequence"
+    FORMAT_STRING               "0x%04X"
+    APPEND_PARAMETER            PKT_LEN     16   UINT   0x0001      0x0001      0x0001      "Packet length"
+    # cFS CMD secondary header
+    APPEND_PARAMETER            CMD_ID       8   UINT   0           0           0           "FunctionCode"
+    APPEND_PARAMETER            CHECKSUM     8   UINT   MIN_UINT8   MAX_UINT8   MIN_UINT8   "Checksum"
